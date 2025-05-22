@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Accident Severity Prediction</title>
+</head>
+<body>
+    <h1>Predict Accident Severity</h1>
+    <form action="/predict" method="POST">
+
+        <label>Road Type:</label>
+        <select name="Road_Type" required>
+            <option value="Single Carriageway">Single Carriageway</option>
+            <option value="Dual Carriageway">Dual Carriageway</option>
+            <option value="Roundabout">Roundabout</option>
+            <option value="One way street">One way street</option>
+            <option value="Slip road">Slip road</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <br><br>
+
+        <label>Weather Conditions:</label>
+        <select name="Weather_Conditions" required>
+            <option value="Fine no high winds">Fine no high winds</option>
+            <option value="Raining + high winds">Raining + high winds</option>
+            <option value="Snowing no high winds">Snowing no high winds</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <br><br>
+
+        <label>Light Conditions:</label>
+        <select name="Light_Conditions" required>
+            <option value="Daylight">Daylight</option>
+            <option value="Darkness - lights lit">Darkness - lights lit</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <br><br>
+
+        <label>Urban or Rural Area:</label>
+        <select name="Urban_or_Rural_Area" required>
+            <option value="Urban">Urban</option>
+            <option value="Rural">Rural</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <br><br>
+
+        <label>Junction Detail:</label>
+        <select name="Junction_Detail" required>
+            <option value="T or staggered junction">T or staggered junction</option>
+            <option value="Crossroads">Crossroads</option>
+            <option value="Roundabout">Roundabout</option>
+            <option value="No junction">No junction</option>
+            <option value="Other junction">Other junction</option>
+            <option value="Unknown">Unknown</option>
+        </select>
+        <br><br>
+
+        <label>Speed Limit (km/h):</label>
+        <input type="number" name="Speed_limit" required>
+        <br><br>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    {% if prediction_text %}
+    <h2>{{ prediction_text }}</h2>
+    {% endif %}
+</body>
+</html>
